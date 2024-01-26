@@ -1,60 +1,60 @@
 # Setup
 
 1. Download & Extract tar.gz in your repo's root. see [Releases](https://github.com/lambojia/termshot-zabbix/tags)
-```
-wget -qO- https://github.com/lambojia/termshot-zabbix/archive/refs/tags/latest.tar.gz | tar xvz
-```
+    ```
+    wget -qO- https://github.com/lambojia/termshot-zabbix/archive/refs/tags/latest.tar.gz | tar xvz
+    ```
 2. Create a directory for storing artifacts w/in your repo. ie: ./artifacts
 
 3. Create a conf file within the directory you created. ie: ./artifacts/conf
 
-_Sample Config._
-```
-{
-"hosts": [
+    _Sample Config._
+    ```
     {
-        "host": "zabbix-client",
-        "paths": [
-            {
-                "path": "/etc/hosts",
-                "command": "cat"
-            },
-            {
-                "path": "/etc/os-release",
-                "command": "cat"
-            },
-            {
-                "path": "/etc/passwd",
-                "command": "base64"
-            },
-            {
-                "path": "/etc/zabbix/zabbix_agentd.conf",
-                "command": "cat"
-            }
-        ]        
-    },
-    {
-        "host": "zabbix-server",
-        "paths": [
-            {
-                "path": "/etc/hosts",
-                "command": "cat"
-            },
-            {
-                "path": "/etc/os-release",
-                "command": "cat"
-            },
-            {
-                "path": "/etc/passwd",
-                "command": "base64"
-            }
-        ]        
-    }]
-}
-```
+    "hosts": [
+        {
+            "host": "zabbix-client",
+            "paths": [
+                {
+                    "path": "/etc/hosts",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/os-release",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/passwd",
+                    "command": "base64"
+                },
+                {
+                    "path": "/etc/zabbix/zabbix_agentd.conf",
+                    "command": "cat"
+                }
+            ]        
+        },
+        {
+            "host": "zabbix-server",
+            "paths": [
+                {
+                    "path": "/etc/hosts",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/os-release",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/passwd",
+                    "command": "base64"
+                }
+            ]        
+        }]
+    }
+    ```
 4. Commit changes into your repo.
 
-5. [Generate a Fine-grained personal access token] (https://github.com/settings/personal-access-tokens/new)
+5. Generate a Fine-grained personal access token (https://github.com/settings/personal-access-tokens/new)
 
     Grant it access to your repo with ff: permissions
    

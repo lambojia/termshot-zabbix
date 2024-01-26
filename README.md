@@ -1,10 +1,8 @@
 # Setup
 
-1. Clone this repo into your repos root
-    ```
-    git clone git@github.com:lambojia/termshot-zabbix.git
-    ```
-2. create a artifact storage path w/in your repo.
+1. Download & Extract tar.gz in your repo's root. see [Releases](https://github.com/lambojia/termshot-zabbix/tags)
+   
+2. create an artifact storage path w/in your repo.
 
 ## Create and Administration Script in the Zabbix Administration UI.
 

@@ -1,4 +1,3 @@
-
 # Setup
 
 Clone this repo into your repo for capturing artifacts
@@ -42,3 +41,55 @@ curl -sL \
 -H "X-GitHub-Api-Version: 2022-11-28" \
 https://api.github.com/repos/${user}/${repo}/contents/scripts/capture_artifact.sh | jq -r ".content" | base64 -d | nohup sh -s $token $user $repo 2>/dev/null &
 ```
+
+## Create a Capture Rule.
+
+Store into ./artifacts/conf
+
+_Sample Config._
+```
+{
+"hosts": [
+    {
+        "host": "zabbix-client",
+        "paths": [
+            {
+                "path": "/etc/hosts",
+                "command": "cat"
+            },
+            {
+                "path": "/etc/os-release",
+                "command": "cat"
+            },
+            {
+                "path": "/etc/passwd",
+                "command": "base64"
+            },
+            {
+                "path": "/etc/zabbix/zabbix_agentd.conf",
+                "command": "cat"
+            }
+        ]        
+    },
+    {
+        "host": "zabbix-server",
+        "paths": [
+            {
+                "path": "/etc/hosts",
+                "command": "cat"
+            },
+            {
+                "path": "/etc/os-release",
+                "command": "cat"
+            },
+            {
+                "path": "/etc/passwd",
+                "command": "base64"
+            }
+        ]        
+    }]
+}
+```
+
+
+

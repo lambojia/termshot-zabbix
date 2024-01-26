@@ -9,7 +9,9 @@ wget -qO- https://github.com/lambojia/termshot-zabbix/archive/refs/tags/latest.t
 3. [Generate a Fine-grained personal access token] (https://github.com/settings/personal-access-tokens/new)
 
     Grant it access to your repo with ff: permissions
+   
         Read access to metadata
+   
         Read and Write access to code and pull requests
 
 

@@ -1,0 +1,104 @@
+{
+    "hosts": [
+        {
+            "host": "zabbix-client",
+            "paths": [
+                {
+                    "path": "/etc/hosts",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/os-release",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/passwd",
+                    "command": "base64"
+                },
+                {
+                    "path": "/etc/zabbix/zabbix_agentd.conf",
+                    "command": "cat"
+                }
+            ]        
+        },
+        {
+            "host": "zabbix-server",
+            "paths": [
+                {
+                    "path": "/etc/hosts",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/os-release",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/passwd",
+                    "command": "base64"
+                }
+            ]        },
+        {
+            "host": "LAPTOP-COAMLVTF",
+            "paths": [
+                {
+                    "path": "/etc/hosts",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/os-release",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/passwd",
+                    "command": "base64"
+                },
+                {
+                    "path": "/root/Github/osenselab/termshot/zabbix_agentd.conf",
+                    "command": "cat"
+                }
+            ]
+        },
+        {
+            "host": "vps-a0ab1755",
+            "paths": [
+                {
+                    "path": "/etc/apt/sources.list.d/debian.sources",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/os-release",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/passwd",
+                    "command": "base64"
+                }
+            ]
+        },
+        {
+            "host": "debian",
+            "paths": [
+                {
+                    "path": "/etc/shadow",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/hosts",
+                    "command": "cat"
+                },
+                {
+                    "path": "/etc/os-release",
+                    "command": "base64"
+                },
+                {
+                    "path": "/etc/passwd",
+                    "command": "base64"
+                },
+                {
+                    "path": "/etc/zabbix/zabbix_agentd.conf",
+                    "command": "base64"
+                }
+            ]
+        }
+    ]
+}

@@ -1,6 +1,11 @@
 #!/bin/sh
 
-#PARAMS: 1 - token , 2 - git org , 3 git repo
+#PARAMS: 
+# 1 - git pat token 
+# 2 - git org/user
+# 3 - git repo  
+# 4 - host work directory 
+# 5 - artifacts path
 
 #prechecks for termshot bin
 if which termshot >/dev/null; then
@@ -18,7 +23,7 @@ fi
 client=$(uname -n)
 
 #Create temp work directory
-workdir=$(pwd)/$(cat /proc/sys/kernel/random/uuid)
+workdir="${4}/$(cat /proc/sys/kernel/random/uuid)"
 mkdir -p $workdir
 cd $workdir
 
@@ -28,7 +33,7 @@ curl -sL \
 -H "Accept: application/vnd.github+json" \
 -H "Authorization: Bearer $1" \
 -H "X-GitHub-Api-Version: 2022-11-28" \
-"https://api.github.com/repos/${2}/${3}/contents/artifacts/conf" | jq -r ".content" | base64 -d | jq -c '.hosts[] | select(.host == "'${client}'") | .paths[]' | while read i; do
+"https://api.github.com/repos/${2}/${3}/contents/${5}/conf" | jq -r ".content" | base64 -d | jq -c '.hosts[] | select(.host == "'${client}'") | .paths[]' | while read i; do
     
     path=$(echo $i | jq -r ".path")
 
@@ -68,7 +73,7 @@ curl -sL \
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer ${1}" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
-        "https://api.github.com/repos/${2}/${3}/contents/artifacts/${client}${path}/$(basename $filename)"
+        "https://api.github.com/repos/${2}/${3}/contents/${5}/${client}${path}/$(basename $filename)"
 
         echo "Screen Captured ${path} to ${filename}"
 

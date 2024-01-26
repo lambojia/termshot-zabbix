@@ -34,17 +34,18 @@ token="<Personal Access Token>"
 workdir="/var/tmp/termshot"
 user="<git org/user>"
 repo="<git repo>"
+artifact="<artifact storage path>"
 
 curl -sL \
 -H "Accept: application/vnd.github+json" \
 -H "Authorization: Bearer $token" \
 -H "X-GitHub-Api-Version: 2022-11-28" \
-https://api.github.com/repos/${user}/${repo}/contents/scripts/capture_artifact-v2.sh | jq -r ".content" | base64 -d | sh -s $token $user $repo
+https://api.github.com/repos/${user}/${repo}/contents/scripts/capture_artifact-v2.sh | jq -r ".content" | base64 -d | sh -s $token $user $repo $artifact
 ```
 
 ## Create a Capture Rule.
 
-Store into ./artifacts/conf
+Store into ./<your artifacts storage path>/conf
 
 _Sample Config._
 ```

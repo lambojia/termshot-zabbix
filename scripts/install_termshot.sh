@@ -2,7 +2,7 @@
 
 set -e
 
-#PARAMS: 1 - work directory , 2 - termshot releases url
+#PARAMS: 1 - work directory
 
 if which termshot >/dev/null; then
 
@@ -18,7 +18,7 @@ else
 
 	cd $1 
 
-	wget -q $2 
+	wget -q https://github.com/homeport/termshot/releases/download/v0.2.7/termshot_0.2.7_linux_amd64.tar.gz 
 
 	tar -xf termshot_0.2.7_linux_amd64.tar.gz
 

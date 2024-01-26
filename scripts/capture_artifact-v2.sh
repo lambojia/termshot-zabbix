@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 #PARAMS: 
 # 1 - git pat token 
 # 2 - git org/user

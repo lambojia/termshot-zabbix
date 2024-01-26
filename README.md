@@ -1,6 +1,6 @@
 # Setup
 
-1. Clone this repo into your repo for capturing artifacts
+1. Clone this repo into your repos root
     ```
     git clone git@github.com:lambojia/termshot-zabbix.git
     ```
@@ -23,7 +23,7 @@ curl -sL \
 -H "Accept: application/vnd.github+json" \
 -H "Authorization: Bearer $token" \
 -H "X-GitHub-Api-Version: 2022-11-28" \
-https://api.github.com/repos/${user}/${repo}/contents/scripts/install_termshot.sh | jq -r ".content" | base64 -d | sh -s $workdir
+https://api.github.com/repos/${user}/${repo}/contents/termshot-zabbix/scripts/install_termshot.sh | jq -r ".content" | base64 -d | sh -s $workdir
 ```
 
 ### Artifact Capture Script
@@ -42,7 +42,7 @@ curl -sL \
 -H "Accept: application/vnd.github+json" \
 -H "Authorization: Bearer $token" \
 -H "X-GitHub-Api-Version: 2022-11-28" \
-https://api.github.com/repos/${user}/${repo}/contents/scripts/capture_artifact-v2.sh | jq -r ".content" | base64 -d | sh -s $token $user $repo $artifact
+https://api.github.com/repos/${user}/${repo}/contents/termshot-zabbix/scripts/capture_artifact-v2.sh | jq -r ".content" | base64 -d | sh -s $token $user $repo $artifact
 ```
 
 ## Create a Capture Rule.

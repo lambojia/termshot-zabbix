@@ -101,6 +101,4 @@ curl -sL \
 https://api.github.com/repos/${user}/${repo}/contents/termshot-zabbix-latest/scripts/capture_artifact-v2.sh | jq -r ".content" | base64 -d | sh -s $token $user $repo $artifact
 ```
 
-## Create a Capture Rule.
-
 

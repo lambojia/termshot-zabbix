@@ -4,11 +4,57 @@
 ```
 wget -qO- https://github.com/lambojia/termshot-zabbix/archive/refs/tags/latest.tar.gz | tar xvz
 ```
-2. Create an artifact storage path w/in your repo.
+2. Create a directory for storing artifacts w/in your repo. ie: ./artifacts
 
-3. Commit changes into your repo.
+3. Create a conf file within the directory you created. ie: ./artifacts/conf
 
-3. [Generate a Fine-grained personal access token] (https://github.com/settings/personal-access-tokens/new)
+_Sample Config._
+```
+{
+"hosts": [
+    {
+        "host": "zabbix-client",
+        "paths": [
+            {
+                "path": "/etc/hosts",
+                "command": "cat"
+            },
+            {
+                "path": "/etc/os-release",
+                "command": "cat"
+            },
+            {
+                "path": "/etc/passwd",
+                "command": "base64"
+            },
+            {
+                "path": "/etc/zabbix/zabbix_agentd.conf",
+                "command": "cat"
+            }
+        ]        
+    },
+    {
+        "host": "zabbix-server",
+        "paths": [
+            {
+                "path": "/etc/hosts",
+                "command": "cat"
+            },
+            {
+                "path": "/etc/os-release",
+                "command": "cat"
+            },
+            {
+                "path": "/etc/passwd",
+                "command": "base64"
+            }
+        ]        
+    }]
+}
+```
+4. Commit changes into your repo.
+
+5. [Generate a Fine-grained personal access token] (https://github.com/settings/personal-access-tokens/new)
 
     Grant it access to your repo with ff: permissions
    
@@ -56,53 +102,5 @@ https://api.github.com/repos/${user}/${repo}/contents/termshot-zabbix-latest/scr
 ```
 
 ## Create a Capture Rule.
-
-Store into ./<your artifacts storage path>/conf
-
-_Sample Config._
-```
-{
-"hosts": [
-    {
-        "host": "zabbix-client",
-        "paths": [
-            {
-                "path": "/etc/hosts",
-                "command": "cat"
-            },
-            {
-                "path": "/etc/os-release",
-                "command": "cat"
-            },
-            {
-                "path": "/etc/passwd",
-                "command": "base64"
-            },
-            {
-                "path": "/etc/zabbix/zabbix_agentd.conf",
-                "command": "cat"
-            }
-        ]        
-    },
-    {
-        "host": "zabbix-server",
-        "paths": [
-            {
-                "path": "/etc/hosts",
-                "command": "cat"
-            },
-            {
-                "path": "/etc/os-release",
-                "command": "cat"
-            },
-            {
-                "path": "/etc/passwd",
-                "command": "base64"
-            }
-        ]        
-    }]
-}
-```
-
 
 

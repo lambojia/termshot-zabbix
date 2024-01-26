@@ -7,6 +7,8 @@
 # 4 - host work directory 
 # 5 - artifacts path
 
+cd ${4}
+
 #prechecks for termshot bin
 if which termshot >/dev/null; then
   termshot_command="termshot"
@@ -23,7 +25,7 @@ fi
 client=$(uname -n)
 
 #Create temp work directory
-workdir="${4}/$(cat /proc/sys/kernel/random/uuid)"
+workdir=$(pwd)/$(cat /proc/sys/kernel/random/uuid)
 mkdir -p $workdir
 cd $workdir
 

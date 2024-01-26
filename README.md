@@ -1,7 +1,9 @@
 # Setup
 
 1. Download & Extract tar.gz in your repo's root. see [Releases](https://github.com/lambojia/termshot-zabbix/tags)
-   
+```
+wget -qO- https://github.com/lambojia/termshot-zabbix/archive/refs/tags/latest.tar.gz | tar xvz
+```
 2. create an artifact storage path w/in your repo.
 
 ## Create and Administration Script in the Zabbix Administration UI.

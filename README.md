@@ -1,8 +1,10 @@
 
 # Setup
 
-Clone this repo into your repo for storing artifacts
-
+Clone this repo into your repo for capturing artifacts
+```
+git clone git@github.com:lambojia/termshot-zabbix.git
+```
 ## Create and Administration Script in the Zabbix Administration UI.
 
 ### Termshot Installation Script

@@ -39,7 +39,7 @@ curl -sL \
 -H "Accept: application/vnd.github+json" \
 -H "Authorization: Bearer $token" \
 -H "X-GitHub-Api-Version: 2022-11-28" \
-https://api.github.com/repos/${user}/${repo}/contents/scripts/capture_artifact.sh | jq -r ".content" | base64 -d | nohup sh -s $token $user $repo 2>/dev/null &
+https://api.github.com/repos/${user}/${repo}/contents/scripts/capture_artifact-v2.sh | jq -r ".content" | base64 -d | sh -s $token $user $repo
 ```
 
 ## Create a Capture Rule.
